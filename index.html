@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <title>Task Manager</title>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="container mx-auto p-4">
+    <!-- Add Task Button -->
+    <button id="addTaskBtn" class=" grid place-self-end bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+      Add Task
+    </button>
+
+    <!-- Add Task Popup -->
+    <div id="addTaskPopup" class="fixed inset-0 place-self-center bg-opacity-50 hidden items-center justify-center">
+      <div class="bg-white p-6 rounded-lg  w-96">
+        <h2 class="text-xl font-bold mb-4">Add New Task</h2>
+        <!-- Task Name -->
+        <input id="taskName" class="w-full p-2 border border-gray-300 rounded-md mb-4" type="text" placeholder="Task Name" required>
+        <!-- Task Description -->
+        <textarea id="taskDescription" class="w-full p-2 border border-gray-300 rounded-md mb-4" placeholder="Task Description" required></textarea>
+        <!-- Task Status Dropdown -->
+        <div class="relative bg-white mb-4">
+          <button id="taskStatusBtn" class="w-full p-2 border border-gray-300 bg-white rounded-md text-left">
+            Task Status: To-Do
+          </button>
+          <div id="taskStatusOptions" class="absolute mt-1 w-full bg-white border border-gray-300 rounded-md z-10 hidden">
+            <button id="statusToDo" class="block w-full p-2 text-left bg-white ">To-Do</button>
+            <button id="statusInProgress" class="block w-full p-2 text-left  bg-white ">In Progress</button>
+            <button id="statusComplete" class="block w-full p-2 text-left  bg-white ">Complete</button>
+          </div>
+        </div>
+        <!-- Priority Status Dropdown -->
+        <div class="relative mb-4">
+          <button id="priorityStatusBtn" class="w-full p-2 border border-gray-300 rounded-md text-left">
+            Priority: Low
+          </button>
+          <div id="priorityStatusOptions" class="absolute mt-1 w-full border border-gray-300 rounded-md z-10 bg-white hidden">
+            <button id="priorityLow" class="block w-full p-2 text-left ">Low</button>
+            <button id="priorityMedium" class="block w-full p-2 text-left ">Medium</button>
+            <button id="priorityHigh" class="block w-full p-2 text-left ">High</button>
+          </div>
+        </div>
+        <!-- Due Date -->
+        <input id="dueDate" class="w-full p-2 border border-gray-300 rounded-md mb-4" type="date" required>
+        <!-- Buttons -->
+        <div class="flex justify-end space-x-2">
+          <button id="saveTaskBtn" class="bg-green-500 text-white px-4 py-2 rounded-md">
+            Save Task
+          </button>
+          <button id="cancelTaskBtn" class="bg-red-500 text-white px-4 py-2 rounded-md">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task List -->
+    <div id="taskList" class="mt-6 space-y-4">
+      <!-- Task cards will be dynamically added here -->
+    </div>
+  </div>
+
+  <script type="module" src="./scripts.js"></script>
+</body>
+</html>
