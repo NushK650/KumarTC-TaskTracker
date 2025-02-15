@@ -4,14 +4,12 @@ import {
     removeFromLocalStorage,
   } from "./localStorage.js";
   
-  // DOM Elements
+
   const addTaskBtn = document.getElementById("addTaskBtn");
   const addTaskPopup = document.getElementById("addTaskPopup");
   const saveTaskBtn = document.getElementById("saveTaskBtn");
   const cancelTaskBtn = document.getElementById("cancelTaskBtn");
   const taskList = document.getElementById("taskList");
-  
-  // Input Fields
   const taskNameInput = document.getElementById("taskName");
   const taskDescriptionInput = document.getElementById("taskDescription");
   const taskStatusBtn = document.getElementById("taskStatusBtn");
@@ -96,8 +94,8 @@ import {
     taskList.innerHTML = "";
     const tasks = getLocalStorage("tasks");
   
-    for (let index = 0; index < tasks.length; index++) {
-      const task = tasks[index];
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i];
       const taskCard = document.createElement("div");
       taskCard.className = "bg-white p-4 rounded-lg border border-gray-300";
       taskCard.innerHTML = `
@@ -106,20 +104,20 @@ import {
         <p class="text-sm text-gray-500">Status: ${task.status}</p>
         <p class="text-sm text-gray-500">Priority: ${task.priority}</p>
         <p class="text-sm text-gray-500">Due Date: ${task.dueDate}</p>
-        <button id="deleteBtn${index}" class="bg-red-500 text-white px-2 py-1 rounded-md mt-2">Delete</button>
+        <button id="deleteBtn${i}" class="bg-red-500 text-white px-2 py-1 rounded-md mt-2">Delete</button>
       `;
       taskList.appendChild(taskCard);
   
     
-      const deleteBtn = document.getElementById(`deleteBtn${index}`);
+      const deleteBtn = document.getElementById(`deleteBtn${i}`);
       deleteBtn.addEventListener("click", () => {
-        removeFromLocalStorage("tasks", index); 
+        removeFromLocalStorage("tasks", i); 
         getTasks(); 
       });
     }
   }
   
   
-  // Initialize
+ 
   getTasks();
   
